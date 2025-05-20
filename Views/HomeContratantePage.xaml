@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ServicoFacilApp.Views.HomeContratantePage"
+             Title="Serviços Disponíveis">
+
+    <StackLayout Padding="20" Spacing="15">
+        <Label Text="Categorias de Serviços" FontSize="24" FontAttributes="Bold" />
+
+        <CollectionView x:Name="CategoriasCollection" SelectionMode="Single" SelectionChanged="OnCategoriaSelected">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#eeeeee" CornerRadius="10" Padding="10" Margin="5">
+                        <Label Text="{Binding Nome}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Text="Buscar prestadores" FontSize="20" FontAttributes="Bold" />
+        <SearchBar x:Name="searchBar" Placeholder="Digite o nome do prestador..." SearchButtonPressed="OnSearch" />
+
+        <CollectionView x:Name="PrestadoresCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" CornerRadius="8" Padding="10" Margin="5">
+                        <StackLayout>
+                            <Label Text="{Binding Nome}" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding Especialidade}" FontSize="14" />
+                            <Button Text="Solicitar Orçamento" Clicked="OnSolicitarOrcamentoClicked" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

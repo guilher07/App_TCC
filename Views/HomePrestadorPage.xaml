@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ServicoFacilApp.Models"
+             x:Class="ServicoFacilApp.Views.HomePrestadorPage"
+             Title="Pedidos de Orçamento">
+
+    <StackLayout Padding="20" Spacing="15">
+        <Label Text="Solicitações Recebidas" FontSize="24" FontAttributes="Bold" />
+
+        <CollectionView x:Name="PedidosCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" CornerRadius="8" Padding="10" Margin="5">
+                        <StackLayout>
+                            <Label Text="{Binding NomeContratante}" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding DescricaoServico}" FontSize="14" />
+                            <Entry Placeholder="Valor do orçamento" Keyboard="Numeric" Text="{Binding ValorOrcamento}" />
+                            <Editor Placeholder="Detalhes do serviço" Text="{Binding DetalhesServico}" />
+                            <Button Text="Enviar Orçamento" CommandParameter="{Binding}" Clicked="OnEnviarOrcamentoClicked" />
+                            <Label Text="Avaliação do contratante:" FontAttributes="Bold" />
+                            <Label Text="{Binding AvaliacaoContratante}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

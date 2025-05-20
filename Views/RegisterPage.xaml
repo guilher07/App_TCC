@@ -1,0 +1,26 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Servico_Facil_App.Views.RegisterPage"
+            Title="Cadastro">
+   <ScrollView>
+       <StackLayout Padding="30" Spacing="15">
+           <Label Text="Cadastro" FontSize="32" HorizontalOptions="Center" />
+
+           <Entry x:Name="nameEntry" Placeholder="Nome completo" />
+           <Entry x:Name="emailEntry" Placeholder="Email" Keyboard="Email" />
+           <Entry x:Name="passwordEntry" Placeholder="Senha" IsPassword="True" />
+
+           <Picker x:Name="rolePicker" Title="Sou...">
+               <Picker.ItemsSource>
+                   <x:Array Type="{x:Type x:String}">
+                       <x:String>Contratante</x:String>
+                       <x:String>Prestador</x:String>
+                   </x:Array>
+               </Picker.ItemsSource>
+           </Picker>
+
+           <Button Text="Escolher Foto" />
+           <Button Text="Cadastrar" Clicked="OnRegisterClicked" />
+       </StackLayout>
+   </ScrollView>
+</ContentPage>
